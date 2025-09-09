@@ -18,4 +18,12 @@ This is a auto push repository for **PS** created with [BaekjoonHub](https://git
 |  |
 | ------- |
 | [0001-two-sum](https://github.com/SIKU-KR/Algorithm-PS/tree/master/0001-two-sum) |
+## String
+|  |
+| ------- |
+| [0020-valid-parentheses](https://github.com/SIKU-KR/Algorithm-PS/tree/master/0020-valid-parentheses) |
+## Stack
+|  |
+| ------- |
+| [0020-valid-parentheses](https://github.com/SIKU-KR/Algorithm-PS/tree/master/0020-valid-parentheses) |
 <!---LeetCode Topics End-->
