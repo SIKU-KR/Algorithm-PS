@@ -1,29 +1,28 @@
 import sys
-
 input = sys.stdin.readline
-a = set()
 
 n = int(input().rstrip())
-for i in range(n):
-    tmp = input().rstrip().split()
-    s = tmp[0]
-    num = int(tmp[1]) if len(tmp) > 1 else None
 
-    if s == 'add':
-        a.add(num)
-    elif s == 'remove':
-        a.discard(num)
-    elif s == 'check':
-        if num in a:
+s = set()
+
+for i in range(n):
+    command = input().split()
+    if command[0] == "add":
+        s.add(int(command[1]))
+    elif command[0] == "remove":
+        if int(command[1]) in s:
+            s.remove(int(command[1]))
+    elif command[0] == "check":
+        if int(command[1]) in s:
             print(1)
         else:
             print(0)
-    elif s == 'toggle':
-        if num in a:
-            a.remove(num)
+    elif command[0] == "toggle":
+        if int(command[1]) in s:
+            s.remove(int(command[1]))
         else:
-            a.add(num)
-    elif s == 'all':
-        a = set(range(1, 21))
-    elif s == 'empty':
-        a.clear()
+            s.add(int(command[1]))
+    elif command[0] == "all":
+        s = set(range(1, 21))
+    elif command[0] == "empty":
+        s = set()
