@@ -1,7 +1,8 @@
 from collections import Counter
 
 def solution(participant, completion):
-    participant_counter = Counter(participant)
-    completion_counter = Counter(completion)
-    difference = participant_counter - completion_counter
-    return list(difference.keys())[0]
+    s = Counter(participant)
+    for c in completion:
+        s[c] -= 1
+        
+    return s.most_common(1)[0][0]
