@@ -1,9 +1,8 @@
+from collections import Counter
+
 def solution(nums):
-    half = len(nums) // 2
-    dic = set()
-    for i in nums:
-        dic.add(i)
-    if len(dic) > half:
-        return half
-    else:
-        return len(dic)
+    n = len(nums)
+    cnt = n // 2
+    dic = Counter(nums)
+    # print(dic.most_common(cnt))
+    return len(dic.most_common(cnt))
