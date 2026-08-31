@@ -1,10 +1,8 @@
 def solution(arr):
-    answer = []
+    stk = []
     for i in arr:
-        if len(answer) == 0:
-            answer.append(i)
+        if stk and stk[-1] == i:
             continue
-        if answer[-1] != i:
-            answer.append(i)
-            continue
-    return answer
+        stk.append(i)
+        
+    return stk
