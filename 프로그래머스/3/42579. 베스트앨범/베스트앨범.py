@@ -1,23 +1,31 @@
 def solution(genres, plays):
-    total = {}
-    pandn = {}
-    for i in range(len(genres)):
-        if genres[i] in total:
-            total[genres[i]] += plays[i]
-        else:
-            total[genres[i]] = plays[i]
-        if genres[i] in pandn:
-            pandn[genres[i]].append((plays[i], i))
-        else:
-            pandn[genres[i]] = []
-            pandn[genres[i]].append((plays[i], i))
-    for key in pandn.keys():
-        pandn[key].sort(key=lambda x: (-x[0], x[1]))
-    keys = sorted(total, key=total.get, reverse=True)
     answer = []
-    for key in keys:
-        target = pandn[key]
-        answer.append(target[0][1])
-        if len(target) > 1:
-            answer.append(target[1][1])
+    
+    li = [] 
+    sum_dict = {}
+    
+    for i in range(len(genres)):
+        li.append((i, genres[i], plays[i]))
+        if genres[i] in sum_dict:
+            sum_dict[genres[i]] += plays[i]
+        else:
+            sum_dict[genres[i]] = plays[i]
+    
+    sorted_li = sorted(li, key= lambda x: [-x[2], x[0]])
+    
+    sum_dict_list = []
+    for k in sum_dict:
+        sum_dict_list.append((k, sum_dict[k]))
+    sum_dict_list.sort(reverse=True, key=lambda x: x[1])
+    
+    for target, total in sum_dict_list:
+        count = 0
+        for i in range(len(sorted_li)):
+            if count == 2:
+                break
+            songid, genre, play = sorted_li[i]
+            if genre == target:
+                answer.append(songid)
+                count += 1
+
     return answer
